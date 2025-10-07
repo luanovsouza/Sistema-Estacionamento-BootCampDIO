@@ -12,3 +12,4 @@ C:\Users\gamer\OneDrive\Documentos\Curso C# POO UDEMY\Desafios para treinar\Sist
 C:\Users\gamer\OneDrive\Documentos\Curso C# POO UDEMY\Desafios para treinar\Sistema de Estacionamento\Estacionamento\Estacionamento\obj\Debug\net9.0\Estacionamento.pdb
 C:\Users\gamer\OneDrive\Documentos\Curso C# POO UDEMY\Desafios para treinar\Sistema de Estacionamento\Estacionamento\Estacionamento\obj\Debug\net9.0\Estacionamento.genruntimeconfig.cache
 C:\Users\gamer\OneDrive\Documentos\Curso C# POO UDEMY\Desafios para treinar\Sistema de Estacionamento\Estacionamento\Estacionamento\obj\Debug\net9.0\ref\Estacionamento.dll
+C:\Users\gamer\OneDrive\Documentos\Curso C# POO UDEMY\Desafios para treinar\Sistema de Estacionamento\Estacionamento\Estacionamento\obj\Debug\net9.0\Estacionamento.sourcelink.json

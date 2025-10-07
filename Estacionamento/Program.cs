@@ -12,7 +12,7 @@ public class Program
         Console.WriteLine("==============Bem vino ao sistema de Estacionamento!===========\n");
 
         Console.Write("Digite o preço inicial: ");
-        var initialPrice = double.Parse(Console.ReadLine()!);
+        var initialPrice = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
         Console.WriteLine();
 
@@ -55,6 +55,9 @@ public class Program
                     case "2":
                         Console.Write("Digite a placa do carro para remover: ");
                         string removeCar = Console.ReadLine()!;
+
+                        Console.Write("Digite a quantidade de horas que o veículo permaneceu estacionado: ");
+                        int hours = int.Parse(Console.ReadLine()!);
                     
                         bool existCar = cars.Any(x => x.Placa == removeCar);
 
@@ -62,7 +65,8 @@ public class Program
                         {
                             cars.RemoveAll(x => x.Placa == removeCar);
                         
-                            Console.WriteLine($"Carro com a placa {removeCar} excluido com sucesso!");
+                            Console.WriteLine($"Carro com a placa {removeCar} excluido com sucesso, e o preço total foi de R$: " +
+                                              $"{CalculaPreco(initialPrice, valuePerHour, hours)}");
                         }
                         break;
                 
@@ -80,13 +84,14 @@ public class Program
                         break;
                     
                     case "4":
-                        
+                        break;
                 }
             }
             catch (Exception e)
             {
                 Console.Write("Ops! Um erro Ocorreu: ");
-                Console.Write(e);
+                Console.Write(e.Message);
+                Console.WriteLine();
             }
         }
         
@@ -94,6 +99,6 @@ public class Program
 
     static double CalculaPreco(double initialprice, double valueperhour, int horas)
     {
-        return (initialprice + valueperhour) / horas;
+        return initialprice +  (valueperhour * horas);
     }
 }

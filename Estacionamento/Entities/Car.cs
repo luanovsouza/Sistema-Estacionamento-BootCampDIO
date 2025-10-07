@@ -8,5 +8,9 @@ public class Car
     {
         Placa = placa;
     }
-    
+
+    override public string ToString()
+    {
+        return $"{Placa}";
+    }
 }
