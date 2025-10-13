@@ -11,12 +11,12 @@ public class Program
         
         Console.WriteLine("==============Bem vino ao sistema de Estacionamento!===========\n");
 
-        Console.Write("Digite o preço inicial: ");
+        Console.Write("Digite o preço inicial: R$");
         var initialPrice = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
         Console.WriteLine();
 
-        Console.Write("Agora digite o preço por hora: ");
+        Console.Write("Agora digite o preço por hora: R$");
         var valuePerHour = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
         while (true)
         {
@@ -33,7 +33,7 @@ public class Program
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("Digite a placa do carro para estacionar: ");
+                        Console.Write("Digite a placa do carro para estacionar: \n");
                         string placa = Console.ReadLine()!;
 
                         if (string.IsNullOrEmpty(placa))
@@ -68,22 +68,36 @@ public class Program
                             Console.WriteLine($"Carro com a placa {removeCar} excluido com sucesso, e o preço total foi de R$: " +
                                               $"{CalculaPreco(initialPrice, valuePerHour, hours)}");
                         }
+                        else
+                        {
+                            Console.WriteLine("Este carro não existe!");
+                        }
                         break;
                 
                     case "3":
-                        if (cars.Count == 0)
-                        {
-                            Console.WriteLine("Parece que a lista está vazia, tente novamente!");
-                        }
+                        VerificaLista(cars);
 
                         foreach (var car in cars)
                         {
-                            Console.WriteLine(car);
+                            Console.WriteLine($"Placa: {car}"); 
                         }
 
                         break;
                     
                     case "4":
+                        Console.WriteLine("Ok, saindo...");
+
+                        VerificaLista(cars);
+                        
+                        Console.WriteLine("Aqui está todos os carros cadastrados!");
+                        foreach (var car in cars)
+                        {
+                            Console.WriteLine(car);
+                        }
+                        return;
+                    
+                    default:
+                        Console.WriteLine("Esse numero não existe!");
                         break;
                 }
             }
@@ -100,5 +114,13 @@ public class Program
     static double CalculaPreco(double initialprice, double valueperhour, int horas)
     {
         return initialprice +  (valueperhour * horas);
+    }
+
+    static void VerificaLista(List<Car> cars)
+    {
+        if (cars.Count == 0)
+        {
+            Console.WriteLine("A lista está vazia, tente novamente!");
+        }
     }
 }
